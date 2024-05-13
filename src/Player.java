@@ -9,7 +9,19 @@ public class Player {
 
     public Card [] hand;
 
+
+    public Player(){
+        cardsValue = 52;
+        hand = new Card[];
     }
+
+    public int cardsValue(){
+
+    }
+
+    }
+
+
 
 
 

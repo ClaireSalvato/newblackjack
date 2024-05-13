@@ -38,8 +38,14 @@ public class Card {
         } else if (pType == 9) {
             type = "Ten";
             value = 9;
-        } else if (pType == 10){
+        } else if (pType == 10) {
+            type = "Jack";
+            value = 10;
+        } else if (pType == 10) {
             type = "King";
+            value = 10;
+        } else if (pType == 10){
+            type = "Queen";
             value = 10;
 
         }
