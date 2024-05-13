@@ -11,15 +11,28 @@ public class Player {
 
 
     public Player(){
-        cardsValue = 52;
-        hand = new Card[];
-    }
-
-    public int cardsValue(){
-
-    }
+        cardsValue = 0;
+        name = "Claire";
+        isPlayer = true;
+        hand = new Card[2];
 
     }
+
+    public void print(){
+        if(isPlayer){
+            System.out.println("Hi " + name);
+            System.out.println("You have " + cardsValue + " points.");
+        }
+        else{
+            System.out.println("Dealer info");
+
+        }
+    }
+
+}
+
+
+
 
 
 
