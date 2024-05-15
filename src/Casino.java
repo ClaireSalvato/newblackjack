@@ -73,6 +73,7 @@ public class Casino {
 
     public void deal(){
         p.hand[0] = deck[0];
+        deal();
 
     }
 
