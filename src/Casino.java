@@ -7,6 +7,8 @@ public class Casino {
 
     public Player p;
 
+    public Player dealer;
+
     public static void main(String[] args) {
         Casino c = new Casino();
 
@@ -17,14 +19,24 @@ public class Casino {
         shuffle();
         printDeck();
 
+
+
         p = new Player();
+       //p.print();
+        System.out.println(p.isPlayer);
+        dealer = new Player();
+        deal();
+        System.out.println(dealer.isPlayer);
+        dealer.isPlayer = false;
         p.print();
+        dealer.print();
         Scanner scan = new Scanner(System.in);
         System.out.println("What is your name?");
         String username = scan.nextLine();
         System.out.println(username);
         p.name = username;
         p.print();
+        System.out.println(p.isPlayer);
 
 
 
@@ -72,10 +84,16 @@ public class Casino {
     }
 
     public void deal(){
-        p.hand[0] = deck[0];
-        deal();
+//        p.hand[0] = deck[0];
+//        p.hand[1] = deck[2];
+
+        p.addCard(deck[0]);
+        p.addCard(deck[1]);
+
+        dealer.hand[1] = deck[2];
+        dealer.hand[1] = deck[3];
 
     }
 
 
-}
+    }
