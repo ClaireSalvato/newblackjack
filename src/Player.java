@@ -5,6 +5,7 @@ public class Player {
 
     public String name;
 
+
     public boolean isPlayer;
 
     public Card [] hand;
@@ -44,7 +45,7 @@ public class Player {
     public void addCard( Card c){
         if(numCards>=2){
             Card[] moreCards = new Card [hand.length+1];
-
+//
             for(int i =0; i<3; i++);
 
         }
