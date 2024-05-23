@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Casino {
 
     public Card [] deck;
+    public int numDealtCards;
     public boolean isHit = false;
 
     public Player p;
@@ -37,6 +38,28 @@ public class Casino {
         p.name = username;
         p.print();
         System.out.println(p.isPlayer);
+
+        System.out.println("Do you want to hit or stand?");
+        String decision = scan.nextLine();
+        System.out.println(decision);
+        boolean isHit;
+        if(decision.equals("hit")) {
+            isHit = true;
+            System.out.println("You decided to hit");
+        } else {
+            isHit = false;
+            System.out.println("You decided to stand");
+        }
+
+        if(isHit){
+
+            p.addCard(deck[numDealtCards]);
+            numDealtCards++;
+
+        } else {
+
+        }
+
 
 
 
@@ -90,8 +113,8 @@ public class Casino {
         p.addCard(deck[0]);
         p.addCard(deck[1]);
 
-        dealer.hand[1] = deck[2];
-        dealer.hand[1] = deck[3];
+        dealer.addCard(deck[2]);
+        dealer.addCard(deck[3]);
 
     }
 

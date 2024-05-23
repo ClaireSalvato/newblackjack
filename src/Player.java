@@ -30,17 +30,24 @@ public class Player {
             System.out.println("Hi " + name);
             System.out.println("You have " + cardsValue + " points.");
         }
+
+
+
+
         else{
-            System.out.println("Dealer info");
-
-        }
-
-        for(int i =0; i<hand.length; i++){
-            hand[i].print();
+            System.out.println("Dealer Info");
+            System.out.println("the dealer has" + hand[0].value + "points");
+            hand[0].print();
         }
     }
 
     public void addCard( Card c){
+        if(numCards>=2){
+            Card[] moreCards = new Card [hand.length+1];
+
+            for(int i =0; i<3; i++);
+
+        }
         hand[numCards] = c;
         numCards = numCards + 1;
         cardsValue = cardsValue + c.value;
