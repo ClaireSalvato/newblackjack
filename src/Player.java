@@ -46,7 +46,10 @@ public class Player {
         if(numCards>=2){
             Card[] moreCards = new Card [hand.length+1];
 //
-            for(int i =0; i<3; i++);
+            for(int i =0; i<hand.length; i++){
+                moreCards[i] = hand[i];
+            }
+            hand = moreCards;
 
         }
         hand[numCards] = c;
