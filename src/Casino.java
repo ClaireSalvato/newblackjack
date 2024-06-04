@@ -11,7 +11,6 @@ public class Casino {
     public Player dealer;
 
 
-
     public static void main(String[] args) {
         Casino c = new Casino();
 
@@ -71,8 +70,7 @@ public class Casino {
                 numDealtCards++;
                 p.print();
 
-            }
-            else {
+            } else {
                 p.print();
                 while (dealer.cardsValue <= 17) {
                     dealer.addCard(deck[numDealtCards]);
@@ -154,19 +152,24 @@ public class Casino {
     }
 
     public void winOrLose() {
-        if(p.cardsValue > 21){
+        if (p.cardsValue > 21) {
 
             System.out.println("You Lost!");
             System.out.println("");
             System.out.println("If you want to play again, click the restart button.");
 
-        } else if(p.cardsValue > dealer.cardsValue) {
+        } else if (dealer.cardsValue > 21) {
+            System.out.println("You won!");
+            System.out.println("");
+            System.out.println("If you want to play again, click the restart button.");
+
+        } else if (p.cardsValue > dealer.cardsValue) {
 
             System.out.println("You won!");
             System.out.println("");
             System.out.println("If you want to play again, click the restart button.");
 
-        } else if(p.cardsValue <dealer.cardsValue){
+        } else if (p.cardsValue < dealer.cardsValue) {
 
             System.out.println("You Lost!");
             System.out.println("");
@@ -177,9 +180,9 @@ public class Casino {
             System.out.println("It's a tie!");
             System.out.println("");
             System.out.println("If you want to play again, click the restart button.");
+
+
         }
-
-
     }
 }
 
