@@ -11,6 +11,7 @@ public class Casino {
     public Player dealer;
 
 
+
     public static void main(String[] args) {
         Casino c = new Casino();
 
@@ -70,18 +71,17 @@ public class Casino {
                 numDealtCards++;
                 p.print();
 
-            } else {
+            }
+            else {
                 p.print();
-                while (dealer.cardsValue <=17) {
+                while (dealer.cardsValue <= 17) {
                     dealer.addCard(deck[numDealtCards]);
                     numDealtCards++;
                 }
-                for(int i = 0; i<dealer.hand.length;i++){
+                for (int i = 0; i < dealer.hand.length; i++) {
                     dealer.hand[i].print();
                 }
                 System.out.println("Dealer has" + dealer.cardsValue + " points.");
-
-
 
 
                 //what happens if we decide to stand
@@ -93,68 +93,94 @@ public class Casino {
 
             System.out.println(p.isPlayer);
 
-//        System.out.println("Do you want to hit or stand?");
-//         decision = scan.nextLine();
-//        System.out.println(decision);
 
+        }
+
+        winOrLose();
+
+
+    }
+
+
+    public void makeDeck() {
+        deck = new Card[52];
+        int count = 0;
+
+        //    deck[0]= new Card("Ace","Spades");
+        for (int t = 0; t < 13; t++) {
+            for (int s = 0; s < 4; s++) {
+                //  if(t==0){
+                deck[count] = new Card(t, s);
+                deck[count].print();
+                count++;
+
+            }
         }
 
 
     }
 
+    public void shuffle() {
+        for (int x = 0; x < 52; x++) {
+            int randomIndex = (int) (Math.random() * 52);
+            Card randomCard = deck[randomIndex];
 
+            Card temp = deck[x];
+            deck[x] = randomCard;
+            deck[randomIndex] = temp;
 
+            printDeck();
 
-public void makeDeck() {
-    deck = new Card[52];
-    int count = 0;
+        }
 
-    //    deck[0]= new Card("Ace","Spades");
-    for (int t = 0; t < 13; t++) {
-        for (int s = 0; s < 4; s++) {
-            //  if(t==0){
-            deck[count] = new Card(t, s);
-            deck[count].print();
-            count++;
+    }
 
+    public void printDeck() {
+        for (int i = 0; i < deck.length; i++) {
+            deck[i].print();
         }
     }
 
-
-}
-
-public void shuffle() {
-    for (int x = 0; x < 52; x++) {
-        int randomIndex = (int) (Math.random() * 52);
-        Card randomCard = deck[randomIndex];
-
-        Card temp = deck[x];
-        deck[x] = randomCard;
-        deck[randomIndex] = temp;
-
-        printDeck();
-
-    }
-
-}
-
-public void printDeck() {
-    for (int i = 0; i < deck.length; i++) {
-        deck[i].print();
-    }
-}
-
-public void deal() {
+    public void deal() {
 //        p.hand[0] = deck[0];
 //        p.hand[1] = deck[2];
 
-    p.addCard(deck[0]);
-    p.addCard(deck[1]);
+        p.addCard(deck[0]);
+        p.addCard(deck[1]);
 
-    dealer.addCard(deck[2]);
-    dealer.addCard(deck[3]);
+        dealer.addCard(deck[2]);
+        dealer.addCard(deck[3]);
 
-}
+    }
+
+    public void winOrLose() {
+        if(p.cardsValue > 21){
+
+            System.out.println("You Lost!");
+            System.out.println("");
+            System.out.println("If you want to play again, click the restart button.");
+
+        } else if(p.cardsValue > dealer.cardsValue) {
+
+            System.out.println("You won!");
+            System.out.println("");
+            System.out.println("If you want to play again, click the restart button.");
+
+        } else if(p.cardsValue <dealer.cardsValue){
+
+            System.out.println("You Lost!");
+            System.out.println("");
+            System.out.println("If you want to play again, click the restart button.");
+
+        } else if (p.cardsValue == dealer.cardsValue) {
+
+            System.out.println("It's a tie!");
+            System.out.println("");
+            System.out.println("If you want to play again, click the restart button.");
+        }
 
 
     }
+}
+
+
