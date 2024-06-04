@@ -33,8 +33,6 @@ public class Player {
         }
 
 
-
-
         else{
             System.out.println("Dealer Info");
             System.out.println("the dealer has" + hand[0].value + "points");

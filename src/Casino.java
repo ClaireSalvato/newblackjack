@@ -10,6 +10,7 @@ public class Casino {
 
     public Player dealer;
 
+
     public static void main(String[] args) {
         Casino c = new Casino();
 
@@ -70,6 +71,19 @@ public class Casino {
                 p.print();
 
             } else {
+                p.print();
+                while (dealer.cardsValue <=17) {
+                    dealer.addCard(deck[numDealtCards]);
+                    numDealtCards++;
+                }
+                for(int i = 0; i<dealer.hand.length;i++){
+                    dealer.hand[i].print();
+                }
+                System.out.println("Dealer has" + dealer.cardsValue + " points.");
+
+
+
+
                 //what happens if we decide to stand
                 // dealer also has to play - while loop - hit or stand until 17
 
